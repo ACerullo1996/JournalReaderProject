@@ -66,6 +66,33 @@ OPENAI_API_KEY=your_key_here
 - Use `.env.example` as the template for local setup.
 - Python cache files and generated summary outputs are ignored by `.gitignore`.
 
+## How to Modify `config.py`
+The main configuration file for prompts and model behavior is `pdf_summary_app/config.py`.
+
+You can edit this file if you want to customize how the app summarizes papers.
+
+Safe changes:
+- Update `MODEL_PAPER` to use a different compatible OpenAI model
+- Edit `SYSTEM_PROMPT` to change the overall assistant role or project context
+- Edit entries in `SECTION_PROMPTS` to change what each summary section asks for
+- Update `KEYWORDS` to change how candidate reference relevance is scored
+
+Use caution with:
+- `RELEVANCE_LABELS`, because other parts of the app expect these exact labels when grouping summaries
+- `load_env_file()`, because changes there can break `.env` loading
+- `OPENAI_API_KEY = os.getenv("OPENAI_API_KEY", "")`, because the API key should come from `.env`, not be hardcoded in the file
+
+Recommended workflow:
+1. Make small changes to `config.py`
+2. Save the file
+3. Run the app again with:
+
+```bash
+python ProjectPDFSummary_RAVS.py
+```
+
+If you make prompt changes, the new behavior will apply the next time summaries are generated.
+
 ## How to Run
 Run the main script:
 
