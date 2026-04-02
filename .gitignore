@@ -1,0 +1,17 @@
+.env
+__pycache__/
+*.py[cod]
+Archive/
+docs/
+Prompts/
+
+# Generated summary outputs
+Summary_*.txt
+AllSummaries.txt
+AllHighlyRelevantSummaries.txt
+AllRelevantSummaries.txt
+AllLooselyRelevantSummaries.txt
+AllNotRelevantSummaries.txt
+CandidateReferences_FromRelevantPapers.txt
+CandidateReferences_Queries.txt
+CandidateReferences_Links.txt
